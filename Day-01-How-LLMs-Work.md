@@ -2,11 +2,11 @@
 
 ## What is an LLM?
 
-LLM is a Large Language Modle which doesn't ask your questions on internet insted it predicts next words or (tokens) of your prompt.
+An LLM (Large Language Model) is an AI model trained on large amounts of text. It generates responses by predicting the next token based on the prompt and conversation context.
 
 ## What is a Token?
 
-A token is a small unit of text. (example: I respect you)
+A token is a small piece of text that an AI model processes. Words, parts of words, punctuation, and spaces can all contribute to tokens.
 
 ## Why do prompts matter?
 
@@ -18,7 +18,4 @@ I learned about LLM
 
 (Your own reflection.)
 
-Today I learned about LLM and Tokens and how AI actually response 
-
-
-Today I umde
+Today I learned about LLM and Tokens and how AI actually response.
