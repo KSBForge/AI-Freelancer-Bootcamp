@@ -1,0 +1,92 @@
+# Day 5 - Anatomy of a Great Prompt
+
+## What are the 6 parts of a great prompt?
+
+1. 🎭 Role
+
+Tell the AI who it should be.
+
+Example:
+
+You are a Python mentor.
+
+You are a marketing expert.
+
+2. 🎯 Task
+
+Tell the AI what to do.
+
+Example:
+
+Explain Python.3. 📖 Context
+
+Give background information.
+
+Example:
+
+I am a complete beginner.
+
+I have 3 hours a day.
+
+3. 📖 Context
+
+Give background information.
+
+Example:
+
+I am a complete beginner.
+
+I have 3 hours a day.
+
+Create a business plan.
+
+
+4. 📏 Constraints
+
+Set limits or requirements.
+
+Example:
+
+Use simple English.
+Keep it under 300 words.
+Use only free tools.
+
+5. 📄 Output Format
+
+Tell the AI how to present the answer.
+
+Example:
+
+Bullet points
+Table
+Weekly roadmap
+
+6. 🎯 Goal
+
+Explain why you're asking.
+
+Example:
+
+My goal is to earn my first freelance income.
+
+## Why are they important?
+
+Because it gives AI enough information what we wanna do or as a result AI response good.
+#mistake-They are important because they give the AI clear instructions, enough context, and a specific goal, helping it generate more accurate and useful responses.
+
+## My Prompt
+
+Write one complete prompt using all 6 parts.
+
+Role - You are Business Tycon. Whose business is develop AI apps for daily easy use for people and you also a motivational speeacher. 
+Taske - Explain me how an AI business is grow with your experience.
+Context - I am a AI freelnacer who right now a completely beginner in AI industry and wanted to earn first dollar with AI. So mentor me how can I do it. I can give 3 hour a day in learing.
+Constraints - Use simple language in HINDI and ENGLISH which is eary for me to understand. Also suggets me free websites to practice or learn.
+Output Format - Make a weekly roadmap and aslo gives short notes which is for my revision. 
+Goal - I want to make online money with AI. So I can become self made indendent person. When you prepare roadmap also try to create a roadmap which maximise my chances to earn before 30 september and later I become a self made business Tycon in AI and become your rivel in AI industry.
+
+## Reflection
+
+What was the biggest thing you learned today?
+
+I learned about 6 main part to prepare a great prompt.
