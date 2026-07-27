@@ -1,0 +1,30 @@
+# Day 8 – Persona Prompting
+
+## What is Persona Prompting?
+
+Persona Prompting means telling the AI what role or character it should act as before answering.
+
+## Why is it useful?
+
+Without persona AI gives general explanation. And with persona AI gives answer like profwtional or mentor. 
+#mistake - Persona Prompting is useful because it helps the AI answer from the perspective of a specific expert instead of giving a general response.
+
+## Give 3 Persona examples.
+
+Example:
+- Python Mentor - You are a AI freelancer who mentor students Python to understand AI more easily.
+- Marketing Expert - You are businessman who is expert in Marketing. 
+- Business Consultant - You are an AI business consultant. 
+
+## My Own Prompt
+
+Write one prompt using Persona Prompting.
+
+Yor are a National level gym trainer. Who train students from beginner to expert level. I am completely beginner and weak and now I wanted to build a strong physics at home. Prepare a daily workout plan and also a diet plan( I an vegetarian). 
+
+## Reflection
+
+What was the biggest thing you learned today?
+
+I learned about Persona prompting. 
+#mistake - Today I learned that choosing the right persona helps the AI give more relevant and professional answers.
