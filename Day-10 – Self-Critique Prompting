@@ -1,0 +1,62 @@
+# Day 10 – Self-Critique Prompting
+
+## What is Self-Critique Prompting?
+
+Self-Critique Prompting means asking the AI to check, improve, and correct its own answer before giving you the final version.
+
+## Why is it useful?
+
+because it helps the AI find mistakes, improve the quality of the work, and provide a more professional final answer.
+
+## Give one example.
+
+❌ Normal Prompt
+
+Write a professional email to my client.
+
+✅ Self-Critique Prompt
+
+Write a professional email to my client.
+
+Then review your email.
+
+Check for grammar mistakes.
+
+Check whether it sounds polite.
+
+Improve it if necessary.
+
+Finally, show me only the improved version.
+
+Now the AI checks its own work before giving it to you.
+
+## My Own Prompt
+
+Write one Self-Critique prompt.
+
+Prepare an AI Chatbot for my clients(details about which type of chatbot my client likes already given)
+Then review it as if you were the client.
+
+Find weak points.
+
+Improve the chatbot.
+
+Show me only the final version.
+
+#mistake - You are an AI chatbot developer.
+
+Build an AI chatbot based on my client's requirements.
+
+After creating it:
+
+1. Review it as if you were the client.
+2. Find any weak points or missing features.
+3. Improve the chatbot.
+4. Show me only the final improved version.
+
+## Reflection
+
+What was the biggest thing you learned today?
+
+I learned about Self-Critique prompt. 
+#mistake - I learned that asking AI to review and improve its own answer can produce higher-quality and more professional results.
