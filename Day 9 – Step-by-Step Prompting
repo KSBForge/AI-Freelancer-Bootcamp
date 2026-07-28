@@ -1,0 +1,57 @@
+# Day 9 – Step-by-Step Prompting
+
+## What is Step-by-Step Prompting?
+
+Step-by-Step Prompting means telling the AI to teach or solve something one step at a time.(Step-by-Step Prompting means asking the AI to solve a problem one step at a time instead of giving the final answer immediately.)
+
+## Why is it useful?
+
+By this AI becomes a teacher instead of giving too much information at once.
+
+## Difference between Prompt Chaining and Step-by-Step Prompting
+
+Prompt Chaining
+
+You use multiple separate prompts.
+
+Example:
+
+Prompt 1 → Find a business idea.
+
+Prompt 2 → Create a business plan.
+
+Prompt 3 → Write a Fiverr gig.
+
+Step-by-Step Prompting
+
+You use one prompt, but tell the AI to explain everything step by step.
+
+Example:
+
+Teach me Python step by step.
+
+Wait for my answer after each step.
+
+## My Own Prompt
+
+Write one Step-by-Step prompt.
+
+## Reflection
+
+What was the biggest thing you learned today?
+
+I learned about step by step Prompting and knows how step by step Prompting and Prompt chaining is different from  each other. 
+
+My own Prompt - 
+
+                You are an experienced Python mentor.
+
+Teach me Python from beginner to advanced one topic at a time.
+
+For each lesson:
+1. Explain the topic in simple words.
+2. Give one real-life example.
+3. Give one exercise.
+4. Wait for my answer before teaching the next topic.
+
+Do not move to the next lesson until I say "Next.
