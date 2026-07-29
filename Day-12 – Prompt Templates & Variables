@@ -1,0 +1,32 @@
+# Day 12 – Prompt Templates & Variables
+
+## What is a Prompt Template?
+
+A Prompt Template is a reusable prompt with blank spaces (variables) that you can fill in for different tasks.
+
+## What is a Variable?
+
+Variables are the parts of a prompt that can be changed.
+
+## Why are Prompt Templates useful?
+
+It is because it saves our time.
+#mistake - Prompt Templates are useful because they save time and allow us to reuse the same prompt for different tasks by changing only the variables.
+
+## Create Your Own Template
+
+You are a {ROLE}.- AI Freelancer
+
+Help me learn {TOPIC}.- Python with AI
+
+I am a {LEVEL}.- completely beginner
+
+Use {LANGUAGE}. - simple language
+
+Present the answer as a {FORMAT}. - blueprint
+
+## Reflection
+
+What was the biggest thing you learned today?
+I learned about Prompt Templates & Variables.
+#mistake - I learned that Prompt Templates help me reuse prompts, and variables let me customise the same prompt for different tasks.
