@@ -1,0 +1,50 @@
+# Day 13 – Iterative Prompting
+
+## What is Iterative Prompting?
+
+Iterative Prompting means improving a prompt step by step until you get a better answer.
+
+## Why is it useful?
+
+Instead of starting over we can improve the same result.
+
+## Example
+
+Write one example of improving a prompt step by step.
+
+Version 1
+
+Write a product description.
+
+↓
+
+Version 2
+
+Make it more persuasive.
+
+↓
+
+Version 3
+
+Keep it under 150 words.
+
+↓
+
+Version 4
+
+Make it friendly and remove grammar mistakes.
+
+## My Own Prompt
+
+Write one prompt, then write two improvements you would make to it.
+
+Prompt - You are an AI Freelancer and mentor the students how to earn with AI. I wanna to learn AI to earn indenpently. SO make a roadmap of ti. 
+
+Improvement - I am completely beginners So keep the words as simple as you can. And I wanted you to make my chances maximise to earn before 30 feb.
+
+## Reflection
+
+What was the biggest thing you learned today?
+
+I learned about  Iterative Prompting
+#mistake - I learned that I don't need a perfect first prompt. I can improve it step by step to get a better answer.
