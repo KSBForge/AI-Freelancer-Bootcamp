@@ -1,0 +1,40 @@
+# Day 11 – Structured Outputs
+
+## What is Structured Output?
+
+Structured Output means telling the AI how to present its answer.
+
+## Why is it useful?
+
+Because it tells the AI how to organise and present the answer in the format we want.
+
+## Name 5 Structured Outputs
+
+- Bullet List
+- Numbered List
+- Table
+- Checklist
+- JSON
+
+## My Own Prompt
+
+Write one prompt that asks AI to answer in a table.
+
+You are a marketing consultant.
+
+Create a 30-day marketing plan.
+
+Present it as a table with these columns:
+
+Day
+Task
+Goal
+Expected Result
+
+Review the plan for any missing steps before giving me the final version.
+
+## Reflection
+
+What was the biggest thing you learned today?
+I learned about Structured Output
+#mistake - I learned that Structured Output helps the AI present answers in a clear format such as tables, lists, or checklists, making them easier to read and use.
