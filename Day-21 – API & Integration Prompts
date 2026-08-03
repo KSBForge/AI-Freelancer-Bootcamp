@@ -1,0 +1,49 @@
+# Day 21 – API & Integration Prompts
+
+## What is an API?
+
+An API is a way for two applications to communicate and share information with each other.
+
+## What is Integration?
+
+Integration means connecting two or more apps or services so they work together automatically.
+
+## Name 5 Integration Examples
+
+- Website + Email
+- Payment System + Google Sheets
+- Chatbot + CRM
+- Calendar + Booking Form
+- Online Store + Inventory System
+
+## My Own API Prompt
+
+Write one API or integration planning prompt for a business.
+
+You are an AI automation consultant.
+
+Design an integration workflow for an online clothing store.
+
+Connect:
+
+Website order form
+Payment system
+Email service
+Google Sheets
+
+Explain:
+
+What each app does
+How information flows between them
+Possible errors
+
+Present the workflow as a numbered list.
+
+Review the workflow before giving the final version.
+
+## Reflection
+
+What was the biggest thing you learned today?
+
+I learned about  API & Integration Prompts
+#mistake - I learned that APIs allow applications to communicate, while integrations connect different applications so they work together automatically.
