@@ -1,0 +1,84 @@
+# Day 26 – AI Prompt Debugging & Optimization
+
+## What is Prompt Debugging & Optimization?
+
+Prompt Debugging & Optimization means finding problems in a prompt and improving it to get better AI responses.
+
+🐞 What is Prompt Debugging?
+
+Just like programmers debug code, prompt engineers debug prompts.
+
+If AI gives a poor answer, ask yourself:
+
+Is the prompt too short?
+Is the task unclear?
+Is important context missing?
+Are there no constraints?
+Did I forget the output format?
+
+Fixing these issues is called prompt debugging.
+
+⚡ What is Prompt Optimization?
+
+Prompt Optimization means improving a prompt step by step so AI gives more accurate, useful, and consistent answers.
+
+
+## Why is it useful?
+
+If AI gives a poor answer it improve it.
+#mistake  -It is useful because if AI gives a poor or unclear answer, we can improve the prompt to get a better and more accurate response.
+
+## Name 5 Ways to Improve a Prompt
+
+- Add a Persona
+- Add Context
+- Add Constraints
+- Specify the Output Format
+- Review and Improve the Final Answer
+
+## My Own Optimized Prompt
+
+Take a simple prompt and rewrite it into a professional prompt.
+
+💼 Real Business Example
+
+A client wants marketing ideas.
+
+❌ Weak Prompt
+
+Give me marketing ideas.
+
+Problems:
+
+No business type
+No target audience
+No budget
+No goal
+No format
+
+AI will probably give a generic answer.
+
+✅ Optimized Prompt
+
+You are a digital marketing consultant.
+
+Suggest 10 marketing ideas for a new online clothing store.
+
+Target audience: College students in India.
+
+Budget: ₹10,000.
+
+Goal: Increase Instagram followers and website sales.
+
+Rank each idea by cost and expected impact.
+
+Present the answer in a table.
+
+Review your suggestions before giving the final version.
+
+## Reflection
+
+What was the biggest thing you learned today?
+
+I learned about AI Prompt Debugging & Optimization
+#mistake - I learned that improving a prompt by adding more details, context, and clear instructions helps AI produce much better responses.
