@@ -1,0 +1,87 @@
+# Day 27 – AI Prompt Evaluation & Testing
+
+## What is Prompt Evaluation & Testing?
+
+Prompt Evaluation & Testing means checking whether a prompt produces accurate, useful, and consistent results.
+
+🧪 What is Prompt Evaluation?
+
+Prompt evaluation means asking questions like:
+
+Did AI understand my request?
+Was the answer accurate?
+Was it complete?
+Was it easy to understand?
+Would it work again with different inputs?
+
+If the answer is No, improve the prompt.
+
+🤔 What is Prompt Testing?
+
+Prompt testing means trying the same prompt with different inputs to see if it still works well.
+
+Example
+
+Prompt:
+
+Explain {TOPIC} for a beginner.
+
+Test it with:
+
+Python ✅
+Marketing ✅
+AI Agents ✅
+APIs ✅
+
+If it works well for all of them, it's a strong prompt.
+
+
+## Why is it useful?
+
+It saves our time and gives accurate answer
+#mistake - It is useful because it helps us improve prompts, saves time, and produces more accurate, consistent, and reliable AI responses.
+
+## Name 5 Things to Check
+
+- Accuracy
+- Clarity
+- Completeness
+- Consistency
+- Format
+
+## My Own Evaluation Prompt
+
+Write one professional prompt that you would test with different inputs.
+
+🤖 Example
+❌ Weak Prompt
+
+Write about AI.
+
+Problems:
+
+Too broad
+No audience
+No goal
+No format
+✅ Better Prompt
+
+You are an AI teacher.
+
+Explain Artificial Intelligence to a complete beginner.
+
+Use simple English.
+
+Give three real-life examples.
+
+Keep it under 300 words.
+
+Present the answer in bullet points.
+
+Review your answer before giving the final version.
+
+## Reflection
+
+What was the biggest thing you learned today?
+I learned about  AI Prompt Evaluation & Testing
+#mistake - I learned that writing a good prompt is only the first step. Testing and improving it helps produce accurate, consistent, and reliable AI responses.
