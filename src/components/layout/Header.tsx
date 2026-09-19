@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { NAV_LINKS, BRAND } from '../../data/site'
+import { NAV_LINKS } from '../../data/site'
 import { scrollToId } from '../../lib/smooth'
 import { useScrollY } from '../../lib/hooks'
 import Logo from '../ui/Logo'
 import { IconSearch, IconMenu, IconClose, IconArrowRight } from '../ui/icons'
 
-export default function Navbar({ onOpenSearch }: { onOpenSearch: () => void }) {
+export default function Header({ onOpenSearch }: { onOpenSearch: () => void }) {
   const y = useScrollY()
   const [active, setActive] = useState('home')
   const [open, setOpen] = useState(false)
@@ -123,7 +123,7 @@ export default function Navbar({ onOpenSearch }: { onOpenSearch: () => void }) {
             Book a Table
             <IconArrowRight width={16} height={16} />
           </button>
-          <p className="mt-6 text-center text-xs tracking-wide text-ivory/40">{BRAND.phone} · {BRAND.hours}</p>
+          <p className="mt-6 text-center text-xs tracking-wide text-ivory/40">+91 98765 43210 · Mon - Sun, 11:00 AM - 11:00 PM</p>
         </div>
       </div>
     </>

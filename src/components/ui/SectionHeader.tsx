@@ -8,7 +8,6 @@ interface Props {
   dark?: boolean
   className?: string
 }
-
 export default function SectionHeader({ eyebrow, title, sub, align = 'left', dark = true, className = '' }: Props) {
   const { ref, cls } = useReveal()
   return (
