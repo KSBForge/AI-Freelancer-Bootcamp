@@ -1,35 +1,54 @@
 import { Suspense, lazy, useState } from 'react'
 import { useReveal, isTouch, prefersReducedMotion } from '../../lib/hooks'
 import SectionHeader from '../ui/SectionHeader'
-import { IconCube } from '../ui/icons'
+import type { TourRoom } from '../three/PanoramaTour'
 
-const VillaCanvas = lazy(() => import('../three/VillaCanvas'))
+const PanoramaTour = lazy(() => import('../three/PanoramaTour'))
 
-const HOTSPOTS = [
-  { id: 'pool', label: 'Infinity Pool', desc: 'A 24m heated infinity edge with sunset deck.' },
-  { id: 'living', label: 'Living Room', desc: 'Double-height glass lounge with skyline views.' },
-  { id: 'bedroom', label: 'Bedrooms', desc: 'Four suite bedrooms, each with a private deck.' },
-  { id: 'garden', label: 'Garden', desc: 'Landscaped courtyards with native planting.' },
-  { id: 'rooftop', label: 'Rooftop', desc: 'Sky lounge and outdoor cinema under the stars.' },
+const PAN = (p: string) => `${import.meta.env.BASE_URL}panos/${p}`
+
+/** Real photographed spaces (CC0 captures from Poly Haven) rendered as 360° photo spheres. */
+const ROOMS: TourRoom[] = [
+  {
+    id: 'living',
+    name: 'Glass Living Pavilion',
+    desc: 'Floor-to-ceiling glazing wrapping the lounge, dining and fireplace.',
+    pano: PAN('glasshouse_interior.hdr'),
+    thumb: PAN('glasshouse_interior.jpg'),
+    start: { lon: 0, lat: 0 },
+  },
+  {
+    id: 'kitchen',
+    name: 'Chef’s Kitchen',
+    desc: 'Bulthaup-style cabinetry with morning light over the breakfast island.',
+    pano: PAN('lebombo.hdr'),
+    thumb: PAN('lebombo.jpg'),
+    start: { lon: 40, lat: 4 },
+  },
+  {
+    id: 'bedroom',
+    name: 'Sea-View Master Suite',
+    desc: 'Wake up to the ocean — private balcony and dressing lounge.',
+    pano: PAN('relax_inn_seaview_suite.hdr'),
+    thumb: PAN('relax_inn_seaview_suite.jpg'),
+    start: { lon: 180, lat: 2 },
+  },
+  {
+    id: 'deck',
+    name: 'Sunset Deck & Pool',
+    desc: 'The infinity edge at golden hour, above the water.',
+    pano: PAN('sundowner_deck.hdr'),
+    thumb: PAN('sundowner_deck.jpg'),
+    start: { lon: 0, lat: 0 },
+  },
 ]
 
 export default function VillaExplorer() {
-  const [active, setActive] = useState<string | null>(null)
-  const [focus, setFocus] = useState<{ pos: [number, number, number]; target: [number, number, number] } | null>(null)
-  const [resetKey, setResetKey] = useState(0)
+  const [active, setActive] = useState<string>('living')
   const { ref, cls } = useReveal()
 
   const light = isTouch() || prefersReducedMotion()
-
-  const goto = (id: string) => {
-    setActive(id)
-    setFocus(mapFocus(id))
-  }
-  const reset = () => {
-    setActive(null)
-    setFocus(null)
-    setResetKey((k) => k + 1)
-  }
+  const room = ROOMS.find((r) => r.id === active) ?? ROOMS[0]
 
   return (
     <section id="explorer" className="relative overflow-hidden bg-charcoal py-24 sm:py-32">
@@ -43,7 +62,7 @@ export default function VillaExplorer() {
       <div className="container-lux relative">
         <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeader
-            eyebrow="3D Property Explorer"
+            eyebrow="360° Photo Tour"
             title={
               <>
                 Experience The
@@ -51,74 +70,55 @@ export default function VillaExplorer() {
                 Property <span className="text-gradient-gold">In 3D</span>
               </>
             }
-            sub="Explore in 3D — drag to orbit, scroll to zoom and tour every angle of the architecture, lit by a real sunset environment."
+            sub="Step inside real photographs of the home — drag to look around in every direction, scroll to zoom, and move from room to room."
           />
           <div ref={ref} className={`${cls} hidden shrink-0 items-center gap-3 lg:flex`}>
-            <span className="chip border-gold/40 text-gold">
-              <IconCube width={13} height={13} className="mr-2" />
-              WebGL · Real-time
-            </span>
-            <span className="chip border-white/15 text-ivory/60">Drag · Zoom · Hotspots</span>
+            <span className="chip border-gold/40 text-gold">360° Photography</span>
+            <span className="chip border-white/15 text-ivory/60">Drag · Zoom · Rooms</span>
           </div>
         </div>
 
         <div ref={ref} className={`${cls} mt-12 grid gap-6 lg:grid-cols-[300px_1fr]`}>
-          {/* Hotspot rail */}
+          {/* Room rail */}
           <aside className="glass rounded-2xl p-6">
-            <p className="text-[11px] uppercase tracking-widest2 text-gold">Architectural Tour</p>
+            <p className="text-[11px] uppercase tracking-widest2 text-gold">Tour the Home</p>
             <div className="mt-5 space-y-2.5">
-              {HOTSPOTS.map((h) => (
+              {ROOMS.map((r) => (
                 <button
-                  key={h.id}
-                  onClick={() => goto(h.id)}
-                  className={`group flex w-full items-center justify-between rounded-xl border px-4 py-3.5 text-left transition-all duration-500 ease-lux ${
-                    active === h.id
+                  key={r.id}
+                  onClick={() => setActive(r.id)}
+                  className={`group flex w-full items-center gap-3.5 rounded-xl border p-2.5 text-left transition-all duration-500 ease-lux ${
+                    active === r.id
                       ? 'border-gold/50 bg-gold/10'
                       : 'border-white/8 bg-white/[0.03] hover:border-gold/30 hover:bg-white/[0.06]'
                   }`}
                 >
-                  <span>
-                    <span className={`block text-sm font-medium ${active === h.id ? 'text-gold-light' : 'text-ivory'}`}>
-                      {h.label}
-                    </span>
-                    <span className="mt-0.5 block text-[12px] leading-snug text-ivory/50">{h.desc}</span>
-                  </span>
-                  <span
-                    className={`grid size-7 shrink-0 place-items-center rounded-full border transition-all duration-500 ${
-                      active === h.id ? 'border-gold bg-gold text-ink' : 'border-white/20 text-ivory/40 group-hover:border-gold/50 group-hover:text-gold'
+                  <img
+                    src={r.thumb}
+                    alt=""
+                    loading="lazy"
+                    className={`size-14 shrink-0 rounded-lg object-cover transition-all duration-500 ${
+                      active === r.id ? 'ring-1 ring-gold/60' : 'opacity-75 group-hover:opacity-100'
                     }`}
-                  >
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                      <path d="M7 17 17 7M9 7h8v8" />
-                    </svg>
+                  />
+                  <span className="min-w-0">
+                    <span className={`block truncate text-sm font-medium ${active === r.id ? 'text-gold-light' : 'text-ivory'}`}>
+                      {r.name}
+                    </span>
+                    <span className="mt-0.5 block truncate text-[12px] text-ivory/50">{r.desc}</span>
                   </span>
                 </button>
               ))}
             </div>
 
-            <button
-              onClick={reset}
-              className={`mt-5 flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-3 text-[12px] font-medium uppercase tracking-widest transition-all duration-500 ${
-                active
-                  ? 'border-gold/50 bg-gold/10 text-gold hover:bg-gold/20'
-                  : 'border-white/10 bg-white/[0.03] text-ivory/50 hover:border-gold/30 hover:text-gold'
-              }`}
-            >
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M3 12a9 9 0 1 0 3-6.7L3 8" />
-                <path d="M3 3v5h5" />
-              </svg>
-              Reset View
-            </button>
-
             <p className="mt-5 border-t border-white/8 pt-4 text-[11px] leading-relaxed text-ivory/40">
               {light
-                ? 'Simplified 3D mode active for this device — optimized performance.'
-                : 'Full 3D mode: drag to orbit, pinch or scroll to zoom. Real HDRI sunset lighting.'}
+                ? 'Simplified mode active for this device — optimized performance.'
+                : 'Drag to look around · scroll to zoom · real photographic panoramas.'}
             </p>
           </aside>
 
-          {/* 3D stage */}
+          {/* 360° stage */}
           <div
             data-cursor="explore"
             className="relative min-h-[440px] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-[#0B0E15] to-[#05070B] sm:min-h-[560px]"
@@ -128,36 +128,33 @@ export default function VillaExplorer() {
                 <div className="grid h-full min-h-[440px] place-items-center sm:min-h-[560px]">
                   <div className="flex flex-col items-center gap-4">
                     <span className="size-10 animate-spin rounded-full border-2 border-gold/20 border-t-gold" />
-                    <p className="text-xs uppercase tracking-widest2 text-ivory/40">Preparing the villa…</p>
+                    <p className="text-xs uppercase tracking-widest2 text-ivory/40">Loading the photo tour…</p>
                   </div>
                 </div>
               }
             >
-              <VillaCanvas focus={focus} reduced={light} onClearFocus={() => setActive(null)} resetKey={resetKey} />
+              <PanoramaTour rooms={ROOMS} activeId={active} reduced={light} />
             </Suspense>
 
-            {/* Floating 3D markers overlay */}
+            {/* HUD overlay */}
             <div className="pointer-events-none absolute inset-0">
-              {active && (
-                <div className="absolute left-1/2 top-6 -translate-x-1/2">
-                  <div className="glass-gold flex items-center gap-2.5 rounded-full px-4 py-2">
-                    <span className="relative flex size-2">
-                      <span className="absolute inline-flex size-full animate-ping-soft rounded-full bg-gold" />
-                      <span className="relative inline-flex size-2 rounded-full bg-gold" />
-                    </span>
-                    <span className="text-xs font-medium tracking-wide text-ivory">
-                      {HOTSPOTS.find((h) => h.id === active)?.label}
-                    </span>
-                  </div>
-                </div>
-              )}
-              {/* HUD corners */}
               <div className="absolute left-4 top-4 h-5 w-5 border-l border-t border-gold/40" />
               <div className="absolute right-4 top-4 h-5 w-5 border-r border-t border-gold/40" />
               <div className="absolute bottom-4 left-4 h-5 w-5 border-b border-l border-gold/40" />
               <div className="absolute bottom-4 right-4 h-5 w-5 border-b border-r border-gold/40" />
+
+              <div className="absolute left-1/2 top-6 -translate-x-1/2">
+                <div className="glass-gold flex items-center gap-2.5 rounded-full px-4 py-2">
+                  <span className="relative flex size-2">
+                    <span className="absolute inline-flex size-full animate-ping-soft rounded-full bg-gold" />
+                    <span className="relative inline-flex size-2 rounded-full bg-gold" />
+                  </span>
+                  <span className="text-xs font-medium tracking-wide text-ivory">{room.name}</span>
+                </div>
+              </div>
+
               <p className="absolute bottom-5 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-widest2 text-ivory/35">
-                Nexora Virtual Tour · Aurora Sky Villa
+                Nexora 360° Tour · Aurora Sky Villa
               </p>
             </div>
           </div>
@@ -165,15 +162,4 @@ export default function VillaExplorer() {
       </div>
     </section>
   )
-}
-
-function mapFocus(id: string): { pos: [number, number, number]; target: [number, number, number] } {
-  switch (id) {
-    case 'pool': return { pos: [10, 5.5, 12], target: [0, 0.5, 4] }
-    case 'living': return { pos: [7, 3.4, 8.5], target: [0, 1.6, 0] }
-    case 'bedroom': return { pos: [-8, 5, 8], target: [-4, 2.2, 0] }
-    case 'garden': return { pos: [0, 9, 13], target: [0, 0, 0] }
-    case 'rooftop': return { pos: [6, 10.5, 9], target: [0, 3.4, 0] }
-    default: return { pos: [11, 6, 12], target: [0, 1.5, 0] }
-  }
 }
