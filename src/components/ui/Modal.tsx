@@ -8,7 +8,6 @@ interface ModalProps {
   labelledBy?: string
   wide?: boolean
 }
-
 export default function Modal({ open, onClose, children, labelledBy, wide }: ModalProps) {
   const ref = useRef<HTMLDivElement>(null)
 
@@ -33,7 +32,7 @@ export default function Modal({ open, onClose, children, labelledBy, wide }: Mod
       <button
         aria-label="Close overlay"
         onClick={onClose}
-        className="absolute inset-0 bg-ink/80 backdrop-blur-md animate-[fadeIn_.3s_ease]"
+        className="absolute inset-0 bg-[#080706]/80 backdrop-blur-md animate-[fadeIn_.3s_ease]"
       />
       <div
         ref={ref}

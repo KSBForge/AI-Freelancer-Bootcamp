@@ -77,14 +77,6 @@ export const IconKey = (p: P) => (
     <path d="m14 9 2 2" />
   </svg>
 )
-export const IconDiamond = (p: P) => (
-  <svg {...base(p)}>
-    <path d="M6 3h12l4 6-10 12L2 9l4-6Z" />
-    <path d="M2 9h20" />
-    <path d="m9 3 3 6 3-6" />
-    <path d="m9 9 3 12 3-12" />
-  </svg>
-)
 export const IconLeaf = (p: P) => (
   <svg {...base(p)}>
     <path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 10-10 3 5 4 9 3 12a7 7 0 0 1-6 5Z" />
@@ -129,6 +121,18 @@ export const IconHeart = (p: P) => (
     <path d="M19 14c1.5-1.4 3-3 3-5a5 5 0 0 0-9-3 5 5 0 0 0-9 3c0 2 1.5 3.6 3 5l6 6Z" />
   </svg>
 )
+export const IconChef = (p: P) => (
+  <svg {...base(p)}>
+    <path d="M6 13l3-6 3 6M12 22V8M18 9l3-6 3 6" />
+    <path d="M9 8v3a3 3 0 0 0 6 0V8" />
+  </svg>
+)
+export const IconLetter = (p: P) => (
+  <svg {...base(p)}>
+    <rect x="3" y="4" width="18" height="16" rx="2" />
+    <path d="m3 7 18 0M8 11h8M8 15h5" />
+  </svg>
+)
 export const IconArrowRight = (p: P) => (
   <svg {...base(p)}>
     <path d="M4 12h16" />
@@ -160,26 +164,6 @@ export const IconPin = (p: P) => (
   <svg {...base(p)}>
     <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
     <circle cx="12" cy="10" r="3" />
-  </svg>
-)
-export const IconBed = (p: P) => (
-  <svg {...base(p)}>
-    <path d="M2 18v-6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v6" />
-    <path d="M2 18h20" />
-    <path d="M6 10V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3" />
-  </svg>
-)
-export const IconBath = (p: P) => (
-  <svg {...base(p)}>
-    <path d="M4 12h16v2a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-2Z" />
-    <path d="M6 12V5a2 2 0 0 1 4 0" />
-    <path d="M7 21l-1 1M17 21l1 1" />
-  </svg>
-)
-export const IconArea = (p: P) => (
-  <svg {...base(p)}>
-    <rect x="4" y="4" width="16" height="16" rx="1" />
-    <path d="M4 9h5V4M20 15h-5v5" />
   </svg>
 )
 export const IconPhone = (p: P) => (
@@ -242,6 +226,19 @@ export const IconCube = (p: P) => (
     <path d="M12 22V11M12 11 4 6.5M12 11l8-4.5" />
   </svg>
 )
+export const IconLamp = (p: P) => (
+  <svg {...base(p)}>
+    <path d="M12 2v4" />
+    <path d="M8 6h8l-1 10H9l-1-10z" />
+    <path d="M9 16h6" />
+  </svg>
+)
+export const IconMapPin = (p: P) => (
+  <svg {...base(p)}>
+    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+    <circle cx="12" cy="10" r="3" />
+  </svg>
+)
 export const IconInstagram = (p: P) => (
   <svg {...base(p)}>
     <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
@@ -267,6 +264,17 @@ export const IconYoutube = (p: P) => (
     <path d="m10 9.5 5 2.5-5 2.5v-5Z" fill="currentColor" stroke="none" />
   </svg>
 )
+export const IconClock = (p: P) => (
+  <svg {...base(p)}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 7V12l3 2" />
+  </svg>
+)
+export const IconWhatsApp = (p: P) => (
+  <svg {...base(p)}>
+    <path d="M2.2 8.6A15 15 0 0 0 5 19.95l.5.1c1.3.3 2.3 1.4 2.5 2.8a7 7 0 0 1-.4 2.2 11 11 0 0 0 1.5 2.2c.8.6 1.8.9 2.9.9h3.7a3.7 3.7 0 0 0 2.6-1.3 7 7 0 0 1 2.3-2.6c.4-1 .4-2 .2-3.1a9 9 0 0 0-.2-2.8 4 4 0 0 1 .3-2.4 4 4 0 0 0-.1-1.2l.1-.5a15 15 0 0 0-5.5-6.4 9 9 0 0 0-4.5-.5 12 12 0 0 0-3.6 1.6 9 9 0 0 0-2.5 2.9 6.3 6.3 0 0 0-.7 2.3l-.1.4a4 4 0 0 1-.6 0l-.3-.1a13 13 0 0 0-2-1.1 7 7 0 0 0-2.7.6c-.6.3-1.2.6-1.8.9a12 12 0 0 0-2.7-1.2c-.8-.2-1.5-.4-2.2-.5A15 15 0 0 0 2 9c0-1.3.3-2.6.9-3.8a12 12 0 0 1 3.2-3.5 13 13 0 0 1 3.7-1.5c1-.4 2-.6 3.1-.6a12 12 0 0 0 3 1 12 12 0 0 0 2.6.9c1 .3 1.9.5 2.9.7a7 7 0 0 0 2.2.3c.7.1 1.4.2 2.1.2a14 14 0 0 0 2.6-.5 7 7 0 0 0 2.3-1.5 13 13 0 0 0 1.9-3 8 8 0 0 0 .6-2.1 10 10 0 0 0-.1-2.2l-.1-.3a13 13 0 0 0-.7-2.3 10 10 0 0 0-1.2-1.9 5 5 0 0 0-1.9-.6 12 12 0 0 0-2.5.2 8 8 0 0 0-1.9 1 13 13 0 0 0-1.5 2.7 10 10 0 0 0-.6 2.3l-.1.2a4 4 0 0 1 0 .6" fill="currentColor" stroke="none" />
+  </svg>
+)
 
 export const ICONS: Record<string, (p: P) => JSX.Element> = {
   home: IconHome,
@@ -278,11 +286,14 @@ export const ICONS: Record<string, (p: P) => JSX.Element> = {
   calendar: IconCalendar,
   document: IconDocument,
   key: IconKey,
-  diamond: IconDiamond,
   leaf: IconLeaf,
   shield: IconShield,
   pool: IconPool,
   gym: IconGym,
   club: IconClub,
   pin: IconPin,
+  chef: IconChef,
+  letter: IconLetter,
+  star: IconStar,
+  heart: IconHeart,
 }

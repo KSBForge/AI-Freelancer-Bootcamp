@@ -7,38 +7,45 @@ export default function Testimonials() {
   const [idx, setIdx] = useState(0)
   const { ref, cls } = useReveal()
   const isDesktop = useMedia('(min-width: 1024px)')
+
   const n = TESTIMONIALS.length
   const go = (d: number) => setIdx((v) => (v + d + n) % n)
 
   return (
-    <section id="testimonials" className="relative overflow-hidden bg-ivory py-24 sm:py-32">
-      <div className="container-lux">
+    <section id="testimonials" className="relative overflow-hidden bg-[#080706] py-24 sm:py-32">
+      {/* Ambient gold glow */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 gold-hairline" />
+        <div className="absolute -top-24 left-1/2 h-72 w-[560px] -translate-x-1/2 rounded-full bg-gold/[0.06] blur-[120px]" />
+      </div>
+
+      <div className="container-lux relative">
         <div ref={ref} className={`${cls} grid items-end gap-8 lg:grid-cols-[0.8fr_1.4fr]`}>
           <div>
-            <span className="eyebrow !text-gold-deep">Testimonials</span>
-            <h2 className="mt-5 font-display text-[clamp(34px,4.2vw,52px)] font-medium leading-[1.06] text-ink">
-              Trusted by
+            <span className="eyebrow">Testimonials</span>
+            <h2 className="mt-5 font-display text-[clamp(34px,4.2vw,52px)] font-medium leading-[1.06] text-ivory">
+              What Our
               <br />
-              Happy Homeowners
+              Guests Say
             </h2>
           </div>
           <div className="flex flex-wrap items-center justify-between gap-4 lg:justify-end">
-            <p className="max-w-md text-[15px] leading-relaxed text-ink/60">
-              Real stories from people who found more than a home — they found a better life.
+            <p className="max-w-md text-[15px] leading-relaxed text-ivory/60">
+              Real stories from guests who found more than a meal — they found a memory.
             </p>
             {isDesktop && (
               <div className="flex gap-3">
                 <button
                   onClick={() => go(-1)}
                   aria-label="Previous testimonial"
-                  className="grid size-12 place-items-center rounded-full border border-ink/15 text-ink/60 transition-all duration-300 hover:border-gold hover:text-gold-deep"
+                  className="grid size-12 place-items-center rounded-full border border-ivory/15 text-ivory/60 transition-all duration-300 hover:border-gold hover:text-gold"
                 >
                   <IconChevronLeft width={18} height={18} />
                 </button>
                 <button
                   onClick={() => go(1)}
                   aria-label="Next testimonial"
-                  className="grid size-12 place-items-center rounded-full border border-ink/15 text-ink/60 transition-all duration-300 hover:border-gold hover:text-gold-deep"
+                  className="grid size-12 place-items-center rounded-full border border-ivory/15 text-ivory/60 transition-all duration-300 hover:border-gold hover:text-gold"
                 >
                   <IconChevronRight width={18} height={18} />
                 </button>
@@ -55,7 +62,7 @@ export default function Testimonials() {
               return (
                 <article
                   key={`${t.name}-${slot}`}
-                  className="card-ivory p-7 transition-all duration-700 ease-lux"
+                  className="glass-gold rounded-2xl p-7 transition-all duration-700 ease-lux"
                   style={{
                     transform: `rotateY(${(slot - 1) * 3.4}deg) translateY(${Math.abs(slot - 1) * 14}px) scale(${slot === 1 ? 1 : 0.97})`,
                     opacity: slot === 1 ? 1 : 0.78,
@@ -64,14 +71,14 @@ export default function Testimonials() {
                   <span className="text-gold">
                     <IconQuote width={30} height={30} />
                   </span>
-                  <blockquote className="mt-4 font-display text-[19px] leading-relaxed text-ink/85">
+                  <blockquote className="mt-4 font-display text-[19px] leading-relaxed text-ivory/85">
                     “{t.quote}”
                   </blockquote>
-                  <div className="mt-6 flex items-center gap-3.5 border-t border-ink/8 pt-5">
+                  <div className="mt-6 flex items-center gap-3.5 border-t border-white/10 pt-5">
                     <img src={t.avatar} alt={t.name} loading="lazy" className="size-12 rounded-full object-cover" />
                     <div className="flex-1">
-                      <p className="font-display text-[17px] font-medium text-ink">{t.name}</p>
-                      <p className="text-[12px] text-ink/50">{t.location}</p>
+                      <p className="font-display text-[17px] font-medium text-ivory">{t.name}</p>
+                      <p className="text-[12px] text-ivory/55">{t.guestType}</p>
                     </div>
                     <div className="flex gap-0.5 text-gold">
                       {Array.from({ length: t.rating }).map((_, s) => (
@@ -92,19 +99,19 @@ export default function Testimonials() {
                 const el = e.currentTarget
                 const card = el.scrollWidth / n
                 setIdx(Math.min(n - 1, Math.round(el.scrollLeft / card)))
-              }}
+                }}
             >
               {TESTIMONIALS.map((t) => (
-                <article key={t.name} className="card-ivory w-[84vw] shrink-0 snap-center p-7">
+                <article key={t.name} className="glass-gold w-[84vw] shrink-0 snap-center p-7">
                   <span className="text-gold">
                     <IconQuote width={28} height={28} />
                   </span>
-                  <blockquote className="mt-4 font-display text-[20px] leading-relaxed text-ink/85">“{t.quote}”</blockquote>
-                  <div className="mt-6 flex items-center gap-3.5 border-t border-ink/8 pt-5">
+                  <blockquote className="mt-4 font-display text-[20px] leading-relaxed text-ivory/85">“{t.quote}”</blockquote>
+                  <div className="mt-6 flex items-center gap-3.5 border-t border-white/10 pt-5">
                     <img src={t.avatar} alt={t.name} loading="lazy" className="size-12 rounded-full object-cover" />
                     <div className="flex-1">
-                      <p className="font-display text-[17px] font-medium text-ink">{t.name}</p>
-                      <p className="text-[12px] text-ink/50">{t.location}</p>
+                      <p className="font-display text-[17px] font-medium text-ivory">{t.name}</p>
+                      <p className="text-[12px] text-ivory/55">{t.guestType}</p>
                     </div>
                     <div className="flex gap-0.5 text-gold">
                       {Array.from({ length: t.rating }).map((_, s) => (
@@ -115,19 +122,21 @@ export default function Testimonials() {
                 </article>
               ))}
             </div>
+
             <div className="mt-6 flex justify-center gap-2.5">
               {TESTIMONIALS.map((t, i) => (
                 <button
                   key={t.name}
                   onClick={() => setIdx(i)}
                   aria-label={`Show testimonial ${i + 1}`}
-                  className={`h-1.5 rounded-full transition-all duration-500 ${i === idx ? 'w-8 bg-gold' : 'w-3 bg-ink/20'}`}
+                  className={`h-1.5 rounded-full transition-all duration-500 ${i === idx ? 'w-8 bg-gold' : 'w-3 bg-ivory/20'}`}
                 />
               ))}
             </div>
           </div>
         )}
       </div>
+      <div style={{ display: 'none' }}></div>
     </section>
   )
 }

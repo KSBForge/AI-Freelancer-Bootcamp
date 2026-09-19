@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { CursorCtx, isTouch, type CursorMode } from '../../lib/hooks'
+import { isTouch, type CursorMode } from '../../lib/hooks'
 
 export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null)
@@ -27,7 +27,6 @@ export default function CustomCursor() {
       const next: CursorMode = explore ? 'explore' : view ? 'view' : interactive ? 'link' : 'default'
       if (next !== mode) {
         mode = next
-        CursorCtx.current = next
       }
     }
 
@@ -43,8 +42,8 @@ export default function CustomCursor() {
         if (mode === 'view' || mode === 'explore') {
           ring.style.width = '64px'
           ring.style.height = '64px'
-          ring.style.background = 'rgba(200,164,95,0.92)'
-          ring.style.borderColor = 'rgba(200,164,95,0.4)'
+          ring.style.background = 'rgba(201,164,92,0.92)'
+          ring.style.borderColor = 'rgba(201,164,92,0.4)'
           label.textContent = mode === 'view' ? 'View' : 'Explore'
           label.style.opacity = '1'
           dot.style.opacity = '0'
@@ -52,14 +51,14 @@ export default function CustomCursor() {
           ring.style.width = '48px'
           ring.style.height = '48px'
           ring.style.background = 'transparent'
-          ring.style.borderColor = 'rgba(200,164,95,0.8)'
+          ring.style.borderColor = 'rgba(201,164,92,0.8)'
           label.style.opacity = '0'
           dot.style.opacity = '1'
         } else {
           ring.style.width = '28px'
           ring.style.height = '28px'
           ring.style.background = 'transparent'
-          ring.style.borderColor = 'rgba(244,239,230,0.5)'
+          ring.style.borderColor = 'rgba(245,239,228,0.5)'
           label.style.opacity = '0'
           dot.style.opacity = '1'
         }

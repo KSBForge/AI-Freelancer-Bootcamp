@@ -4,24 +4,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#07090D',
-        charcoal: '#0C0F16',
-        midnight: '#10141F',
-        night: '#171B28',
-        ivory: '#F4EFE6',
-        cream: '#FAF7F0',
-        sand: '#E7DECB',
-        sanddeep: '#D8CBAC',
+        ink: '#080706',
+        charcoal: '#0c0c0a',
+        midnight: '#10100c',
+        night: '#151411',
+        ivory: '#F5EFE4',
+        cream: '#FAF6EC',
+        sand: '#E7D09A',
+        sanddeep: '#C9A45C',
         gold: {
-          DEFAULT: '#C8A45F',
-          light: '#E7CE9A',
+          DEFAULT: '#C9A45C',
+          light: '#E7D09A',
           soft: '#D9BC80',
           deep: '#9A7A3C',
         },
       },
       fontFamily: {
         display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        sans: ['Jost', 'system-ui', 'sans-serif'],
+        sans: ['"Inter"', 'system-ui', 'sans-serif'],
         script: ['"Great Vibes"', 'cursive'],
       },
       letterSpacing: {

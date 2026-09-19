@@ -1,418 +1,258 @@
-export interface Property {
-  id: string
-  name: string
-  location: string
-  city: string
-  price: string
-  priceValue: number // in Cr for filtering
-  beds: number
-  baths: number
-  area: string
-  type: 'Villas' | 'Apartments' | 'Penthouses' | 'Commercial' | 'Land'
-  badge?: 'Featured' | 'New' | 'Popular' | 'Luxury'
-  image: string
-  gallery?: string[]
-  description?: string
-}
-
 export const BRAND = {
-  name: 'NEXORA',
-  sub: 'REAL ESTATE',
-  tagline: 'A Better Tomorrow Lives Here',
-  motto: 'Dream · Invest · Belong',
+  name: 'SAVORÉ',
+  sub: 'RESTAURANT',
+  tagline: 'Good Food. Good People. Great Memories.',
+  motto: 'Good Food Brings People Together',
   phone: '+91 98765 43210',
   phoneHref: 'tel:+919876543210',
-  hours: 'Mon - Sat, 9 AM - 7 PM',
-  email: 'info@nexora.com',
-  address: '123, Horizon Tower, Mumbai, India',
+  hours: 'Mon - Sun, 11:00 AM - 11:00 PM',
+  email: 'hello@savore.in',
+  emailHref: 'mailto:hello@savore.in',
+  address: '123 Food Street, Jaipur, India',
+  mapAddress: '123 Food Street, Jaipur, India',
   socials: [
     { label: 'Instagram', href: 'https://instagram.com', icon: 'instagram' },
     { label: 'Facebook', href: 'https://facebook.com', icon: 'facebook' },
-    { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
     { label: 'YouTube', href: 'https://youtube.com', icon: 'youtube' },
+    { label: 'Google Maps', href: 'https://maps.google.com', icon: 'pin' },
   ],
 } as const
 
 export const NAV_LINKS = [
   { label: 'Home', href: '#home' },
-  { label: 'Properties', href: '#properties' },
-  { label: 'Services', href: '#services' },
   { label: 'About', href: '#about' },
-  { label: 'Locations', href: '#locations' },
-  { label: 'Testimonials', href: '#testimonials' },
+  { label: 'Menu', href: '#menu' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'Reservation', href: '#reservation' },
   { label: 'Contact', href: '#contact' },
 ] as const
 
-export const HERO_STATS = [
-  { value: 250, suffix: '+', label: 'Premium Properties' },
-  { value: 15, suffix: '+', label: 'Cities' },
-  { value: 98, suffix: '%', label: 'Client Satisfaction' },
-]
+export const EXPERIENCE_PILLARS = [
+  {
+    eyebrow: 'Expert Chefs',
+    title: 'Passionate culinary professionals',
+    desc: 'Trained. Passionate. Creative.',
+    icon: 'chef',
+  },
+  {
+    eyebrow: 'Fresh Ingredients',
+    title: 'Locally sourced, seasonal, and pure',
+    desc: 'Sourced with care, for better taste.',
+    icon: 'leaf',
+  },
+  {
+    eyebrow: 'Memorable Experience',
+    title: 'Great food, warm ambience, always',
+    desc: 'Food, ambience, and people that stay with you.',
+    icon: 'heart',
+  },
+  {
+    eyebrow: 'Exceptional Quality',
+    title: 'A fine dining experience like no other',
+    desc: 'A promise we make with every plate.',
+    icon: 'star',
+  },
+] as const
 
-export const HERO_IMAGES = {
-  hero: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2000&auto=format&fit=crop',
-  thumb: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=400&auto=format&fit=crop',
-  story:
-    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop',
-  about:
-    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1800&auto=format&fit=crop',
+export const STATS = [
+  { value: 5, suffix: '+', label: 'Expert Chefs' },
+  { value: 100, suffix: '%', label: 'Fresh Ingredients' },
+  { value: 10, suffix: 'K+', label: 'Happy Guests' },
+  { value: 4.8, suffix: '', label: 'Average Rating' },
+] as const
+
+export const MENU_CATEGORIES = ['All', 'Starters', 'Main Course', 'Desserts', 'Beverages'] as const
+
+export interface MenuItem {
+  id: string
+  category: (typeof MENU_CATEGORIES)[number]
+  name: string
+  description: string
+  price: string
+  rating: number
+  image: string
+  badge?: string
 }
 
-export const PROPERTIES: Property[] = [
+export const MENU_ITEMS: MenuItem[] = [
   {
-    id: 'oceanview-villa',
-    name: 'Oceanview Villa',
-    location: 'Goa, India',
-    city: 'Goa',
-    price: '₹8.50 Cr',
-    priceValue: 8.5,
-    beds: 5,
-    baths: 5,
-    area: '6,200 sq ft',
-    type: 'Villas',
-    badge: 'Featured',
-    image:
-      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1200&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1200&auto=format&fit=crop',
-    ],
-    description:
-      'A clifftop contemporary villa with an infinity edge pool, private beach access and panoramic sunset views over the Arabian Sea.',
+    id: 'classic-bruschetta',
+    category: 'Starters',
+    name: 'Classic Bruschetta',
+    description: 'Grilled bread, fresh tomatoes, basil, olive oil.',
+    price: '₹ 320',
+    rating: 4.9,
+    image: 'https://images.unsplash.com/photo-1572695157369-5aff6a24e392?q=80&w=800&auto=format&fit=crop',
   },
   {
-    id: 'skyline-apartment',
-    name: 'Skyline Apartment',
-    location: 'Mumbai, India',
-    city: 'Mumbai',
-    price: '₹3.20 Cr',
-    priceValue: 3.2,
-    beds: 3,
-    baths: 3,
-    area: '2,400 sq ft',
-    type: 'Apartments',
-    badge: 'New',
-    image:
-      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1600121848594-d8644e57abab?q=80&w=1200&auto=format&fit=crop',
-    ],
-    description:
-      'Floor-to-ceiling glass, skyline views of the Worli sea link and five-star building amenities in the heart of South Mumbai.',
+    id: 'truffle-alfredo-pasta',
+    category: 'Main Course',
+    name: 'Truffle Alfredo Pasta',
+    description: 'Creamy sauce, truffle oil, parmesan.',
+    price: '₹ 520',
+    rating: 4.8,
+    image: 'https://images.unsplash.com/photo-1645112411341-6c4fd023714a?q=80&w=800&auto=format&fit=crop',
   },
   {
-    id: 'the-palms-villa',
-    name: 'The Palms Villa',
-    location: 'Bangalore, India',
-    city: 'Bangalore',
-    price: '₹6.75 Cr',
-    priceValue: 6.75,
-    beds: 4,
-    baths: 4,
-    area: '5,000 sq ft',
-    type: 'Villas',
-    badge: 'Popular',
-    image:
-      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1200&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop',
-    ],
-    description:
-      'A palm-lined garden estate minutes from the tech corridor — courtyard pool, home theatre and a certified smart-home stack.',
+    id: 'grilled-salmon',
+    category: 'Main Course',
+    name: 'Grilled Salmon',
+    description: 'Fresh salmon, seasonal vegetables, lemon butter sauce.',
+    price: '₹ 780',
+    rating: 4.9,
+    image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=800&auto=format&fit=crop',
   },
   {
-    id: 'elite-penthouse',
-    name: 'Elite Penthouse',
-    location: 'Delhi, India',
-    city: 'Delhi',
-    price: '₹12.00 Cr',
-    priceValue: 12,
-    beds: 4,
-    baths: 5,
-    area: '7,800 sq ft',
-    type: 'Penthouses',
-    badge: 'Luxury',
-    image:
-      'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=1200&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=1200&auto=format&fit=crop',
-    ],
-    description:
-      'A duplex penthouse crowning Lutyens Delhi — private terrace lounge, outdoor fireplace and concierge-served grand living.',
+    id: 'herb-crusted-lamb',
+    category: 'Main Course',
+    name: 'Herb Crusted Lamb',
+    description: 'Tender lamb, herbs, roasted veggies, red wine reduction.',
+    price: '₹ 820',
+    rating: 4.9,
+    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop',
   },
   {
-    id: 'marina-commercial',
-    name: 'Marina Trade Tower',
-    location: 'Mumbai, India',
-    city: 'Mumbai',
-    price: '₹22.00 Cr',
-    priceValue: 22,
-    beds: 0,
-    baths: 6,
-    area: '14,500 sq ft',
-    type: 'Commercial',
-    badge: 'Featured',
-    image:
-      'https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1200&auto=format&fit=crop',
-    ],
-    description:
-      'Grade-A waterfront office floor with dedicated sky lobby, 100% power backup and LEED Gold certification.',
+    id: 'chocolate-lava-cake',
+    category: 'Desserts',
+    name: 'Chocolate Lava Cake',
+    description: 'Rich chocolate, warm center, vanilla ice cream.',
+    price: '₹ 380',
+    rating: 4.9,
+    image: 'https://images.unsplash.com/photo-1624353365286-3f8d62daad51?q=80&w=800&auto=format&fit=crop',
   },
   {
-    id: 'riverfront-estate-land',
-    name: 'Riverfront Estate Parcel',
-    location: 'Pune, India',
-    city: 'Pune',
-    price: '₹4.80 Cr',
-    priceValue: 4.8,
-    beds: 0,
-    baths: 0,
-    area: '1.2 acres',
-    type: 'Land',
-    badge: 'New',
-    image:
-      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop',
-    ],
-    description:
-      'Riverside gated parcel with clear NA title, 60ft access road and approved plans for a bespoke villa compound.',
+    id: 'classic-tiramisu',
+    category: 'Desserts',
+    name: 'Classic Tiramisu',
+    description: 'Layers of coffee, mascarpone, and love.',
+    price: '₹ 420',
+    rating: 4.8,
+    image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=800&auto=format&fit=crop',
   },
   {
-    id: 'aurora-sky-villa',
-    name: 'Aurora Sky Villa',
-    location: 'Bangalore, India',
-    city: 'Bangalore',
-    price: '₹9.25 Cr',
-    priceValue: 9.25,
-    beds: 5,
-    baths: 5,
-    area: '6,800 sq ft',
-    type: 'Villas',
-    badge: 'Luxury',
-    image:
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1200&auto=format&fit=crop',
-    ],
-    description:
-      'Hillside villa wrapped in glass and teak — floating decks, lap pool and a sunrise yoga pavilion above the Nandi valley.',
+    id: 'signature-mocktail',
+    category: 'Beverages',
+    name: 'Signature Mocktail',
+    description: 'A refreshing blend of fruits and herbs.',
+    price: '₹ 280',
+    rating: 4.7,
+    image: 'https://images.unsplash.com/photo-1536935338309-003b851b7b11?q=80&w=800&auto=format&fit=crop',
   },
   {
-    id: 'celeste-heights',
-    name: 'Celeste Heights',
-    location: 'Pune, India',
-    city: 'Pune',
-    price: '₹2.90 Cr',
-    priceValue: 2.9,
-    beds: 3,
-    baths: 3,
-    area: '2,150 sq ft',
-    type: 'Apartments',
-    image:
-      'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=1200&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1600047509358-9dc75507daeb?q=80&w=1200&auto=format&fit=crop',
-    ],
-    description:
-      'Sunlit 3-bed residences with sky gardens, co-working lounge and a rooftop infinity deck over the Mula river.',
+    id: 'artisan-coffee',
+    category: 'Beverages',
+    name: 'Artisan Coffee',
+    description: 'Freshly brewed, perfectly crafted.',
+    price: '₹ 220',
+    rating: 4.8,
+    image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop',
   },
 ]
 
-export const PROPERTY_CATEGORIES = ['All', 'Villas', 'Apartments', 'Penthouses', 'Commercial', 'Land']
+export const GALLERY_CATEGORIES = ['All', 'Ambience', 'Food', 'Drinks', 'People', 'Events'] as const
 
-export const BEDROOM_OPTS = ['2+', '3+', '4+', '5+']
+export interface GalleryImage {
+  id: string
+  category: (typeof GALLERY_CATEGORIES)[number]
+  title: string
+  src: string
+  alt: string
+}
 
-export const CITIES = ['All Locations', 'Mumbai', 'Goa', 'Bangalore', 'Delhi', 'Pune']
-
-export const PRICE_RANGES = ['Any Budget', 'Under ₹3 Cr', '₹3 - 7 Cr', '₹7 - 12 Cr', '₹12 Cr+']
-
-export const SERVICES = [
+export const GALLERY_IMAGES: GalleryImage[] = [
   {
-    id: 'buy',
-    title: 'Buy Property',
-    desc: 'Find your perfect home from verified listings.',
-    icon: 'home',
+    id: 'gallery-ambience-1',
+    category: 'Ambience',
+    title: 'Candlelit Tables',
+    src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1200&auto=format&fit=crop',
+    alt: 'Warmly lit restaurant table with wine glasses and a lit candle',
   },
   {
-    id: 'sell',
-    title: 'Sell Property',
-    desc: 'Get the best value with expert guidance.',
-    icon: 'tag',
+    id: 'gallery-food-1',
+    category: 'Food',
+    title: 'Plated Excellence',
+    src: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1200&auto=format&fit=crop',
+    alt: 'Gourmet plated dish garnished with microgreens',
   },
   {
-    id: 'invest',
-    title: 'Real Estate Investment',
-    desc: 'Grow your wealth with smart investments.',
-    icon: 'chart',
+    id: 'gallery-drinks-1',
+    category: 'Drinks',
+    title: 'Signature Cocktail',
+    src: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1200&auto=format&fit=crop',
+    alt: 'Red cocktail in a crystal glass with fruit garnish',
   },
   {
-    id: 'rent',
-    title: 'Rental Services',
-    desc: 'Quality rentals for a better tomorrow.',
-    icon: 'handshake',
+    id: 'gallery-people-1',
+    category: 'People',
+    title: 'Chef at Work',
+    src: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=1200&auto=format&fit=crop',
+    alt: 'Chef plating food with precision',
   },
   {
-    id: 'consult',
-    title: 'Property Consultation',
-    desc: 'Personalized advice from industry experts.',
-    icon: 'users',
+    id: 'gallery-events-1',
+    category: 'Events',
+    title: 'Celebrations',
+    src: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&auto=format&fit=crop',
+    alt: 'Elegant celebration table setting',
+  },
+  {
+    id: 'gallery-ambience-2',
+    category: 'Ambience',
+    title: 'Evening Warmth',
+    src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop',
+    alt: 'Dimly lit restaurant interior with pendant lamps',
+  },
+  {
+    id: 'gallery-food-2',
+    category: 'Food',
+    title: 'Grilled Salmon',
+    src: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=1200&auto=format&fit=crop',
+    alt: 'Grilled salmon fillet with cherry tomatoes',
+  },
+  {
+    id: 'gallery-drinks-2',
+    category: 'Drinks',
+    title: 'Red Wine Pour',
+    src: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?q=80&w=1200&auto=format&fit=crop',
+    alt: 'Glass of red wine being poured',
   },
 ]
 
-export const STEPS = [
-  {
-    num: '01',
-    title: 'Search',
-    desc: 'Explore verified properties that match your needs.',
-    icon: 'search',
-  },
-  {
-    num: '02',
-    title: 'Visit',
-    desc: 'Schedule a visit and experience the property in person.',
-    icon: 'calendar',
-  },
-  {
-    num: '03',
-    title: 'Finalize',
-    desc: 'Get expert assistance with legal and financial paperwork.',
-    icon: 'document',
-  },
-  {
-    num: '04',
-    title: 'Move In',
-    desc: 'Complete the process and step into your new beginning.',
-    icon: 'key',
-  },
-]
+export interface Testimonial {
+  quote: string
+  name: string
+  guestType: string
+  rating: number
+  avatar: string
+}
 
-export const VALUES = [
-  { title: 'Client First', desc: 'Your goals are our priority in every step.', icon: 'diamond' },
-  { title: 'Sustainable Living', desc: 'We build for a greener and healthier future.', icon: 'leaf' },
-  { title: 'Trusted Expertise', desc: 'Years of experience you can rely on.', icon: 'shield' },
-  { title: 'A Better Community', desc: 'Creating spaces that bring people closer.', icon: 'users' },
-]
-
-export const AMENITIES = [
+export const TESTIMONIALS: Testimonial[] = [
   {
-    title: 'Infinity Pool',
-    desc: 'Relax. Rejuvenate. Repeat.',
-    icon: 'pool',
-    image:
-      'https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=1200&auto=format&fit=crop',
-  },
-  {
-    title: 'Modern Gym',
-    desc: 'Fitness for a better you.',
-    icon: 'gym',
-    image:
-      'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1200&auto=format&fit=crop',
-  },
-  {
-    title: 'Club House',
-    desc: 'Unwind with your community.',
-    icon: 'club',
-    image:
-      'https://images.unsplash.com/photo-1600210492493-0946911123ea?q=80&w=1200&auto=format&fit=crop',
-  },
-  {
-    title: 'Rooftop Garden',
-    desc: 'Closer to nature, higher in life.',
-    icon: 'leaf',
-    image:
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1200&auto=format&fit=crop',
-  },
-]
-
-export const TESTIMONIALS = [
-  {
-    quote:
-      'Nexora made our home buying journey so smooth. The entire team was professional, transparent, and truly cared about our needs.',
-    name: 'Rahul Mehta',
-    location: 'Mumbai, India',
+    quote: 'An unforgettable dining experience! The food, ambience and service were simply perfect.',
+    name: 'Aarav Mehta',
+    guestType: 'Food Lover',
     rating: 5,
-    avatar:
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop',
   },
   {
-    quote:
-      'From the first visit to the final handover, everything was seamless. We could not be happier with our new home.',
+    quote: 'SAVORÉ is my go-to place for every special occasion. The flavours are exceptional!',
     name: 'Priya Sharma',
-    location: 'Bangalore, India',
+    guestType: 'Regular Guest',
     rating: 5,
-    avatar:
-      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop',
+    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop',
   },
   {
-    quote:
-      'A trustworthy brand with exceptional properties. Nexora does not just sell homes, they build communities.',
-    name: 'Aman Verma',
-    location: 'Delhi, India',
+    quote: 'Beautiful ambience, delicious food and amazing service. Truly a gem in the city!',
+    name: 'Rohan Verma',
+    guestType: 'Travel Blogger',
     rating: 5,
-    avatar:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop',
-  },
-  {
-    quote:
-      'Their investment advisory team found us a commercial asset that outperformed every projection. Truly expert guidance.',
-    name: 'Sana Kapoor',
-    location: 'Goa, India',
-    rating: 5,
-    avatar:
-      'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
   },
 ]
 
-export const LOCATIONS = [
-  {
-    city: 'Mumbai',
-    tagline: 'The City of Opportunities',
-    desc: 'Sea-facing towers, star-rated amenities and unmatched career proximity.',
-    tags: ['Luxury Living', 'Business Hub', 'High ROI'],
-    image:
-      'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=1400&auto=format&fit=crop',
-    x: 27,
-    y: 47,
-    count: 82,
-  },
-  {
-    city: 'Bangalore',
-    tagline: 'Where Innovation Lives',
-    desc: 'Garden-city villas and smart homes minutes from the tech corridor.',
-    tags: ['Tech Hub', 'Modern Lifestyle', 'Green Spaces'],
-    image:
-      'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=1400&auto=format&fit=crop',
-    x: 47,
-    y: 77,
-    count: 64,
-  },
-  {
-    city: 'Pune',
-    tagline: 'A Perfect Balance',
-    desc: 'Riverside living with mountain backdrops and rising rental yields.',
-    tags: ['Great Connectivity', 'Growing Demand', 'Vibrant Culture'],
-    image:
-      'https://images.unsplash.com/photo-1624372635310-01d07dc167a1?q=80&w=1400&auto=format&fit=crop',
-    x: 31,
-    y: 56,
-    count: 47,
-  },
-  {
-    city: 'Delhi',
-    tagline: 'Heritage Meets Modernity',
-    desc: 'Grand boulevards, builder floors and ultra-luxury penthouses.',
-    tags: ['Prime Location', 'Excellent Connectivity', 'Endless Possibilities'],
-    image:
-      'https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=1400&auto=format&fit=crop',
-    x: 39,
-    y: 24,
-    count: 71,
-  },
-]
+export const CHEW_PHILOSOPHY = {
+  title: 'Simple Ingredients. Extraordinary Flavours.',
+  body: "We believe in honest food, crafted with care, respect for ingredients, and a drive to create unforgettable dining experiences.",
+}
+
+export const NEWSLETTER_CONFIRM = 'Thank you — you\'re on the list.'
