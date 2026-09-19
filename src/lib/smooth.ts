@@ -16,8 +16,14 @@ export function initSmoothScroll() {
       smoothWheel: true,
     })
     ;(window as unknown as { __lenis?: Lenis }).__lenis = lenis
-    const raf = (time: number) => lenis?.raf(time)
-    requestAnimationFrame(raf)
+    // The rAF loop must re-schedule itself every frame or Lenis never advances
+    // (a single requestAnimationFrame call only runs one frame -> page scroll freezes).
+    let raf = 0
+    const loop = (time: number) => {
+      lenis?.raf(time)
+      raf = requestAnimationFrame(loop)
+    }
+    raf = requestAnimationFrame(loop)
     lenis.on('scroll', ScrollTrigger.update)
     return lenis
   } catch {

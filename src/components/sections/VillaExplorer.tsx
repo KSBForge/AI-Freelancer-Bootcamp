@@ -1,4 +1,4 @@
-import { Suspense, lazy, useRef, useState } from 'react'
+import { Suspense, lazy, useState } from 'react'
 import { useReveal, isTouch, prefersReducedMotion } from '../../lib/hooks'
 import SectionHeader from '../ui/SectionHeader'
 import { IconCube } from '../ui/icons'
@@ -16,9 +16,20 @@ const HOTSPOTS = [
 export default function VillaExplorer() {
   const [active, setActive] = useState<string | null>(null)
   const [focus, setFocus] = useState<{ pos: [number, number, number]; target: [number, number, number] } | null>(null)
+  const [resetKey, setResetKey] = useState(0)
   const { ref, cls } = useReveal()
 
   const light = isTouch() || prefersReducedMotion()
+
+  const goto = (id: string) => {
+    setActive(id)
+    setFocus(mapFocus(id))
+  }
+  const reset = () => {
+    setActive(null)
+    setFocus(null)
+    setResetKey((k) => k + 1)
+  }
 
   return (
     <section id="explorer" className="relative overflow-hidden bg-charcoal py-24 sm:py-32">
@@ -40,7 +51,7 @@ export default function VillaExplorer() {
                 Property <span className="text-gradient-gold">In 3D</span>
               </>
             }
-            sub="Drag to orbit, scroll to zoom and step inside the architecture. Every angle, every detail — explored from your screen."
+            sub="Explore in 3D — drag to orbit, scroll to zoom and tour every angle of the architecture, lit by a real sunset environment."
           />
           <div ref={ref} className={`${cls} hidden shrink-0 items-center gap-3 lg:flex`}>
             <span className="chip border-gold/40 text-gold">
@@ -59,10 +70,7 @@ export default function VillaExplorer() {
               {HOTSPOTS.map((h) => (
                 <button
                   key={h.id}
-                  onClick={() => {
-                    setActive(h.id)
-                    setFocus(mapFocus(h.id))
-                  }}
+                  onClick={() => goto(h.id)}
                   className={`group flex w-full items-center justify-between rounded-xl border px-4 py-3.5 text-left transition-all duration-500 ease-lux ${
                     active === h.id
                       ? 'border-gold/50 bg-gold/10'
@@ -87,10 +95,26 @@ export default function VillaExplorer() {
                 </button>
               ))}
             </div>
+
+            <button
+              onClick={reset}
+              className={`mt-5 flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-3 text-[12px] font-medium uppercase tracking-widest transition-all duration-500 ${
+                active
+                  ? 'border-gold/50 bg-gold/10 text-gold hover:bg-gold/20'
+                  : 'border-white/10 bg-white/[0.03] text-ivory/50 hover:border-gold/30 hover:text-gold'
+              }`}
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 12a9 9 0 1 0 3-6.7L3 8" />
+                <path d="M3 3v5h5" />
+              </svg>
+              Reset View
+            </button>
+
             <p className="mt-5 border-t border-white/8 pt-4 text-[11px] leading-relaxed text-ivory/40">
               {light
                 ? 'Simplified 3D mode active for this device — optimized performance.'
-                : 'Full 3D mode: drag to orbit, pinch or scroll to zoom.'}
+                : 'Full 3D mode: drag to orbit, pinch or scroll to zoom. Real HDRI sunset lighting.'}
             </p>
           </aside>
 
@@ -109,7 +133,7 @@ export default function VillaExplorer() {
                 </div>
               }
             >
-              <VillaCanvas focus={focus} reduced={light} onClearFocus={() => setActive(null)} />
+              <VillaCanvas focus={focus} reduced={light} onClearFocus={() => setActive(null)} resetKey={resetKey} />
             </Suspense>
 
             {/* Floating 3D markers overlay */}
