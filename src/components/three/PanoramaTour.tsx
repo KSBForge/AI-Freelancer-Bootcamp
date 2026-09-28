@@ -16,6 +16,7 @@ interface Props {
   rooms: TourRoom[]
   activeId: string
   reduced?: boolean
+  onRoomClick?: (id: string) => void
 }
 
 /**
@@ -23,7 +24,7 @@ interface Props {
  * photo panorama (equirectangular HDRI) and looks around in true 3D
  * perspective. Rooms crossfade as you move through the property.
  */
-export default function PanoramaTour({ rooms, activeId, reduced }: Props) {
+export default function PanoramaTour({ rooms, activeId, reduced, onRoomClick }: Props) {
   const mountRef = useRef<HTMLDivElement>(null)
   const roomsRef = useRef(rooms)
   roomsRef.current = rooms
@@ -37,6 +38,8 @@ export default function PanoramaTour({ rooms, activeId, reduced }: Props) {
     tFov: number
     fov: number
   } | null>(null)
+  const clickCbRef = useRef(onRoomClick)
+  clickCbRef.current = onRoomClick
   const loadRoomRef = useRef<(room: TourRoom) => void>(() => {})
 
   useEffect(() => {
@@ -170,6 +173,7 @@ export default function PanoramaTour({ rooms, activeId, reduced }: Props) {
     }
     const onClick = (e: MouseEvent) => {
       if (moved > 8) return // it was a drag, not a click
+      clickCbRef.current?.(st.targetId)
     }
 
     el.addEventListener('pointerdown', onDown)

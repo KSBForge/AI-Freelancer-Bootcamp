@@ -3,9 +3,9 @@ import { NAV_LINKS, BRAND } from '../../data/site'
 import { scrollToId } from '../../lib/smooth'
 import { useScrollY } from '../../lib/hooks'
 import Logo from '../ui/Logo'
-import { IconSearch, IconMenu, IconClose, IconArrowRight } from '../ui/icons'
+import { IconSearch, IconMenu, IconClose } from '../ui/icons'
 
-export default function Navbar({ onOpenSearch }: { onOpenSearch: () => void }) {
+export default function Navbar({ onOpenSearch, onSchedule }: { onOpenSearch: () => void; onSchedule: () => void }) {
   const y = useScrollY()
   const [active, setActive] = useState('home')
   const [open, setOpen] = useState(false)
@@ -42,7 +42,7 @@ export default function Navbar({ onOpenSearch }: { onOpenSearch: () => void }) {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-[70] transition-all duration-700 ease-lux ${
-          scrolled ? 'border-b border-white/[0.06] bg-[#080706]/85 py-3 backdrop-blur-xl' : 'bg-transparent py-5'
+          scrolled ? 'border-b border-white/[0.06] bg-ink/80 py-3 backdrop-blur-xl' : 'bg-transparent py-5'
         }`}
       >
         <div className="container-lux flex items-center justify-between gap-4">
@@ -70,20 +70,16 @@ export default function Navbar({ onOpenSearch }: { onOpenSearch: () => void }) {
           <div className="flex items-center gap-3">
             <button
               onClick={onOpenSearch}
-              aria-label="Search menu and dishes"
-              className="grid size-11 place-items-center rounded-full border border-white/10 text-ivory/85 transition-all duration-300 hover:border-gold/60 hover:text-gold"
+              aria-label="Search properties"
+              className="grid size-11 place-items-center rounded-full border border-white/12 text-ivory/85 transition-all duration-300 hover:border-gold/60 hover:text-gold"
             >
               <IconSearch width={19} height={19} />
             </button>
-            <button
-              onClick={() => scrollToId('reservation')}
-              className="btn-gold hidden !px-6 !py-3 md:inline-flex"
-            >
-              Book a Table
-              <IconArrowRight width={16} height={16} />
+            <button onClick={onSchedule} className="btn-gold hidden !px-6 !py-3 md:inline-flex">
+              Schedule a Visit
             </button>
             <button
-              className="grid size-11 place-items-center rounded-full border border-white/10 text-ivory lg:hidden"
+              className="grid size-11 place-items-center rounded-full border border-white/12 text-ivory lg:hidden"
               onClick={() => setOpen((v) => !v)}
               aria-label="Toggle menu"
               aria-expanded={open}
@@ -96,7 +92,7 @@ export default function Navbar({ onOpenSearch }: { onOpenSearch: () => void }) {
 
       {/* Mobile menu */}
       <div
-        className={`fixed inset-0 z-[65] flex flex-col bg-[#080706]/95 backdrop-blur-2xl transition-all duration-500 ease-lux lg:hidden ${
+        className={`fixed inset-0 z-[65] flex flex-col bg-ink/95 backdrop-blur-2xl transition-all duration-500 ease-lux lg:hidden ${
           open ? 'visible opacity-100' : 'invisible opacity-0'
         }`}
       >
@@ -116,12 +112,11 @@ export default function Navbar({ onOpenSearch }: { onOpenSearch: () => void }) {
           <button
             onClick={() => {
               setOpen(false)
-              scrollToId('reservation')
+              onSchedule()
             }}
             className="btn-gold mt-8 w-full"
           >
-            Book a Table
-            <IconArrowRight width={16} height={16} />
+            Schedule a Visit
           </button>
           <p className="mt-6 text-center text-xs tracking-wide text-ivory/40">{BRAND.phone} · {BRAND.hours}</p>
         </div>
