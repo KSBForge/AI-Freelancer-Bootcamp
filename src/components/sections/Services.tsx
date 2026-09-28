@@ -4,6 +4,7 @@ import { ICONS, IconArrowRight } from '../ui/icons'
 
 export default function Services() {
   const { ref, cls } = useReveal()
+  const { ref: quoteRef, cls: quoteCls } = useReveal(0.3)
 
   return (
     <section id="services" className="relative overflow-hidden bg-charcoal py-24 sm:py-32">
@@ -33,7 +34,7 @@ export default function Services() {
             </p>
             <button className="btn-gold mt-8">Explore Our Services</button>
           </div>
-          <figure ref={ref} className={`${cls} hidden justify-self-end lg:block`}>
+          <figure ref={quoteRef} className={`${quoteCls} hidden justify-self-end lg:block`}>
             <blockquote className="max-w-[230px] border-l-2 border-gold/50 pl-5 font-display text-[22px] italic leading-snug text-ivory/90">
               “Turning Property into Possibility.”
             </blockquote>

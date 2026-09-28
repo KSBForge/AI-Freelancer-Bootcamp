@@ -3,6 +3,14 @@ export default {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
+      // NOTE: default Tailwind opacity scale is multiples of 5. The codebase uses
+      // /8 and /12 hairline opacities extensively, so they are added here —
+      // otherwise Tailwind silently drops them (no CSS generated).
+      // (Inside `extend` so the default 5-step scale is preserved.)
+      opacity: {
+        '8': '0.08',
+        '12': '0.12',
+      },
       colors: {
         ink: '#07090D',
         charcoal: '#0C0F16',

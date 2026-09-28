@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import { BRAND, HERO_IMAGES, HERO_STATS, PROPERTIES } from '../../data/site'
-import { prefersReducedMotion, isTouch, useReveal } from '../../lib/hooks'
+import { BRAND, HERO_IMAGES, HERO_STATS } from '../../data/site'
+import { prefersReducedMotion, isTouch, useReveal, useMagnetic } from '../../lib/hooks'
 import { scrollToId } from '../../lib/smooth'
 import { IconArrowRight, IconPlay, IconArrowUpRight } from '../ui/icons'
 import PropertyModal from '../PropertyModal'
@@ -18,6 +18,7 @@ interface Props {
 
 export default function Hero({ onWatchStory }: Props) {
   const rootRef = useRef<HTMLElement>(null)
+  const ctaRef = useMagnetic<HTMLButtonElement>(0.22)
   const [entered, setEntered] = useState(false)
   const [selected, setSelected] = useState<string | null>(null)
   const { ref: featuredRef, cls: featuredCls } = useReveal<HTMLDivElement>(0.3)
@@ -157,7 +158,7 @@ export default function Hero({ onWatchStory }: Props) {
             className={`mt-10 flex flex-wrap items-center gap-4 transition-all duration-1000 ease-lux ${entered ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
             style={{ transitionDelay: '880ms' }}
           >
-            <button onClick={() => scrollToId('properties')} className="btn-gold magnetic">
+            <button ref={ctaRef} onClick={() => scrollToId('properties')} className="btn-gold">
               Explore Properties
               <IconArrowRight width={17} height={17} />
             </button>
@@ -301,7 +302,7 @@ function FeaturedCard({ onOpen }: { onOpen: () => void }) {
               <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
-            Mumbai, India
+            Goa, India
           </p>
         </div>
         <button

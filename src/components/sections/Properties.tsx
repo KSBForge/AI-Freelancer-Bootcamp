@@ -248,7 +248,7 @@ function PropertyCard({
         onClick={onOpen}
         className="group card-ivory cursor-pointer overflow-hidden transition-[transform,box-shadow] duration-500 ease-lux will-change-transform hover:shadow-lux-sm"
       >
-        <div className="relative aspect-[4/3] overflow-hidden">
+        <div className="shimmer-sweep relative aspect-[4/3] overflow-hidden">
           <img
             src={p.image}
             alt={p.name}

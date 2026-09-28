@@ -46,6 +46,7 @@ const ROOMS: TourRoom[] = [
 export default function VillaExplorer() {
   const [active, setActive] = useState<string>('living')
   const { ref, cls } = useReveal()
+  const { ref: railRef, cls: railCls } = useReveal(0.12)
 
   const light = isTouch() || prefersReducedMotion()
   const room = ROOMS.find((r) => r.id === active) ?? ROOMS[0]
@@ -78,7 +79,7 @@ export default function VillaExplorer() {
           </div>
         </div>
 
-        <div ref={ref} className={`${cls} mt-12 grid gap-6 lg:grid-cols-[300px_1fr]`}>
+        <div ref={railRef} className={`${railCls} mt-12 grid gap-6 lg:grid-cols-[300px_1fr]`}>
           {/* Room rail */}
           <aside className="glass rounded-2xl p-6">
             <p className="text-[11px] uppercase tracking-widest2 text-gold">Tour the Home</p>

@@ -51,7 +51,7 @@ export default function Contact({ onSchedule }: { onSchedule: () => void }) {
         <div className="space-y-7">
           <ContactRow icon={<IconPhone width={19} height={19} />} title={BRAND.phone} sub={BRAND.hours} href={BRAND.phoneHref} />
           <ContactRow icon={<IconMail width={19} height={19} />} title={BRAND.email} sub="We reply within 24 hours" href={`mailto:${BRAND.email}`} />
-          <ContactRow icon={<IconPin width={19} height={19} />} title={BRAND.address.split(',')[0] + ','} sub={BRAND.address.split(',').slice(1).join(',').trim()} />
+          <ContactRow icon={<IconPin width={19} height={19} />} title={BRAND.address} sub="Visit our experience centre" />
 
           <div>
             <p className="text-[12px] uppercase tracking-widest2 text-ivory/45">Follow Us</p>

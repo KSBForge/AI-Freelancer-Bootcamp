@@ -32,13 +32,15 @@ export default function About({ onWatchStory }: { onWatchStory: () => void }) {
           <div className="relative">
             <div className="absolute -left-6 -top-6 hidden size-28 rounded-tl-2xl border-l border-t border-gold/40 lg:block" />
             <div className="absolute -bottom-6 -right-6 hidden size-28 rounded-br-2xl border-b border-r border-gold/40 lg:block" />
-            <img
-              src={HERO_IMAGES.about}
-              alt="Luxury living room at dusk"
-              loading="lazy"
-              className="h-[420px] w-full rounded-2xl object-cover shadow-lux sm:h-[480px]"
-            />
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
+            <div className="shimmer-sweep group overflow-hidden rounded-2xl shadow-lux">
+              <img
+                src={HERO_IMAGES.about}
+                alt="Luxury living room at dusk"
+                loading="lazy"
+                className="h-[420px] w-full object-cover transition-transform duration-[1600ms] ease-lux group-hover:scale-[1.045] sm:h-[480px]"
+              />
+            </div>
+            <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
             <button
               onClick={onWatchStory}
               className="group absolute bottom-6 left-6 flex items-center gap-4"
