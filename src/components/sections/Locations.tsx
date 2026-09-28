@@ -37,6 +37,9 @@ export default function Locations({ onExplore }: { onExplore: (city: string) => 
   )
 }
 
+const FALLBACK_IMAGE =
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1400&auto=format&fit=crop'
+
 function LocationCard({
   l,
   i,
@@ -57,11 +60,17 @@ function LocationCard({
         className="group relative cursor-pointer overflow-hidden rounded-2xl border border-white/8 transition-all duration-500 ease-lux hover:-translate-y-1.5 hover:border-gold/30 hover:shadow-lux"
         style={{ transitionDelay: `${i * 40}ms` }}
       >
-        <div className="shimmer-sweep relative aspect-[16/10]">
+        <div className="shimmer-sweep relative aspect-[16/10] bg-charcoal">
           <img
             src={l.image}
-            alt={l.city}
+            alt={`${l.city} — ${l.tagline}`}
             loading="lazy"
+            onError={(e) => {
+              const img = e.currentTarget
+              if (img.dataset.fallback) return
+              img.dataset.fallback = '1'
+              img.src = FALLBACK_IMAGE
+            }}
             className="size-full object-cover transition-transform duration-[1300ms] ease-lux group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/25 to-transparent" />

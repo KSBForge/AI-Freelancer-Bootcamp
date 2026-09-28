@@ -399,7 +399,7 @@ export const LOCATIONS = [
     desc: 'Riverside living with mountain backdrops and rising rental yields.',
     tags: ['Great Connectivity', 'Growing Demand', 'Vibrant Culture'],
     image:
-      'https://images.unsplash.com/photo-1624372635310-01d07dc167a1?q=80&w=1400&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=1400&auto=format&fit=crop',
     x: 31,
     y: 56,
     count: 47,
