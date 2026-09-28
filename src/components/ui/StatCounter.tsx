@@ -13,15 +13,11 @@ export default function StatCounter({
   dark?: boolean
   className?: string
 }) {
-  const isDecimal = value % 1 !== 0
-  const { ref, val } = useCountUp(Math.round(value * 10), 1800)
-  const display =
-    isDecimal ? (val / 10).toFixed(1) : val.toLocaleString('en-IN')
-
+  const { ref, val } = useCountUp(value, 1800)
   return (
     <div className={className}>
       <div className={`font-display text-[42px] font-medium leading-none sm:text-5xl ${dark ? 'text-ivory' : 'text-ink'}`}>
-        <span ref={ref}>{display}</span>
+        <span ref={ref}>{val.toLocaleString('en-IN')}</span>
         {suffix && <span className="text-gradient-gold">{suffix}</span>}
       </div>
       <div className={`mt-2.5 text-[13px] tracking-wide ${dark ? 'text-ivory/60' : 'text-ink/60'}`}>{label}</div>
